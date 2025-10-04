@@ -13,7 +13,7 @@ const PostApprovePage = () => {
     const fetchNotices = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/auth/college/${collegeCode}/notices`
+          `https://career-ksfd.onrender.com/api/auth/college/${collegeCode}/notices`
         );
         const data = await res.json();
         setNotices(data);
@@ -30,7 +30,7 @@ const PostApprovePage = () => {
   const handleApprove = async (noticeId) => {
     setLoadingIds((prev) => [...prev, noticeId]);
     try {
-      await fetch(`http://localhost:5000/api/auth/notice/${noticeId}/approve`, {
+      await fetch(`https://career-ksfd.onrender.com/api/auth/notice/${noticeId}/approve`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ collegeCode }),
@@ -46,7 +46,7 @@ const PostApprovePage = () => {
   const handleReject = async (noticeId) => {
     setLoadingIds((prev) => [...prev, noticeId]);
     try {
-      await fetch(`http://localhost:5000/api/auth/notice/${noticeId}/reject`, {
+      await fetch(`https://career-ksfd.onrender.com/api/auth/notice/${noticeId}/reject`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ collegeCode }),
@@ -91,7 +91,7 @@ const PostApprovePage = () => {
             
             {n.image && (
               <img
-                src={`http://localhost:5000/uploads/${n.image}`}
+                src={`https://career-ksfd.onrender.com/uploads/${n.image}`}
                 alt={n.title}
                 width="200"
               />

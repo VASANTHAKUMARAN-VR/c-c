@@ -13,7 +13,7 @@ const PostPage = () => {
   const fetchNotices = async () => {
     if (!companyId) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/auth/company/${companyId}/notices`);
+      const res = await fetch(`https://career-ksfd.onrender.com/api/auth/company/${companyId}/notices`);
       const data = await res.json();
       setNotices(data || []);
     } catch (err) {
@@ -37,7 +37,7 @@ const PostPage = () => {
 
     setUploading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/auth/company/${companyId}/notice`, { method: "POST", body: formData });
+      const res = await fetch(`https://career-ksfd.onrender.com/api/auth/company/${companyId}/notice`, { method: "POST", body: formData });
       const data = await res.json();
       if (data.notice) {
         // Add the new notice to state immediately
@@ -57,7 +57,7 @@ const PostPage = () => {
   const handleDelete = async (noticeId) => {
     if (!window.confirm("Are you sure?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/auth/notice/${noticeId}`, { method: "DELETE" });
+      const res = await fetch(`https://career-ksfd.onrender.com/api/auth/notice/${noticeId}`, { method: "DELETE" });
       if (res.ok) {
         setNotices((prev) => prev.filter((n) => n._id !== noticeId)); // remove from state
         alert("Notice deleted successfully");
@@ -86,7 +86,7 @@ const PostPage = () => {
               <strong>{n.title}</strong> - {n.description}
               {n.image && (
                 <img
-                  src={`http://localhost:5000/uploads/${n.image}`}
+                  src={`https://career-ksfd.onrender.com/uploads/${n.image}`}
                   alt={n.title}
                   width="100"
                   style={{ display: "block", marginTop: "5px" }}

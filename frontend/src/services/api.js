@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api/auth";
+const BASE_URL = "https://career-ksfd.onrender.com/api/auth";
 
 export const loginUser = async (email, password) => {
   try {

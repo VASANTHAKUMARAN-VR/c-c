@@ -10,7 +10,7 @@ const ViewProfilePage = () => {
     const fetchProfile = async () => {
       if (!user.id) return;
       try {
-        const res = await fetch(`http://localhost:5000/api/auth/profile/${user.id}`);
+        const res = await fetch(`https://career-ksfd.onrender.com/api/auth/profile/${user.id}`);
         if (!res.ok) {
           console.log("Profile not found");
           return;
