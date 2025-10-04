@@ -24,7 +24,7 @@ app.use(express.json());
 // ✅ Enable CORS
 app.use(
   cors({
-    origin: ["http://localhost:4000", "https://campus-career.vercel.app"], // React frontend
+    origin: [ "https://campus-career.vercel.app","http://localhost:4000"], // React frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
