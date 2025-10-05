@@ -10,50 +10,50 @@ body {
   color: #2d3748;
   background-color: #f9fafb;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Utility Classes */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 clamp(15px, 3vw, 40px);
 }
 
 .hidden {
   display: none !important;
 }
 
-/* Responsive Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   color: #2d3748;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: #4a5568;
   margin-bottom: 1rem;
 }
 
-/* Buttons */
 button {
-  padding: 0.75rem 1.5rem;
+  padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -79,23 +79,18 @@ button.secondary:hover {
   background: #cbd5e0;
 }
 
-/* Responsive Grid */
 .grid {
   display: grid;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
 }
-
-/* ============================================
-   AUTHENTICATION PAGES (Login, Signup, etc.)
-   ============================================ */
 
 body:has(.login-container) {
   background: white;
@@ -103,7 +98,7 @@ body:has(.login-container) {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: clamp(15px, 3vw, 20px);
 }
 
 .login-container {
@@ -111,30 +106,30 @@ body:has(.login-container) {
   max-width: 900px;
   display: flex;
   background: white;
-  border-radius: 16px;
+  border-radius: clamp(12px, 2vw, 16px);
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  min-height: 500px;
+  min-height: clamp(450px, 60vh, 500px);
+  flex-direction: row;
 }
 
-/* Left Side - Form Section */
 .login-form {
   flex: 1;
-  padding: 60px 50px;
+  padding: clamp(30px, 5vw, 60px) clamp(25px, 4vw, 50px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: white;
   position: relative;
+  min-width: 0;
 }
 
-/* Campus To Career Title */
 .login-form::before {
   content: 'Campus To Career';
   position: absolute;
-  top: 30px;
-  left: 50px;
-  font-size: 22px;
+  top: clamp(20px, 3vw, 30px);
+  left: clamp(25px, 4vw, 50px);
+  font-size: clamp(16px, 2.5vw, 22px);
   font-weight: 700;
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   -webkit-background-clip: text;
@@ -144,21 +139,21 @@ body:has(.login-container) {
 }
 
 .login-form h2 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 35px;
+  margin-bottom: clamp(20px, 4vw, 35px);
   text-align: left;
-  margin-top: 20px;
+  margin-top: clamp(15px, 3vw, 20px);
 }
 
 .login-form input {
   width: 100%;
-  padding: 14px 18px;
-  margin-bottom: 18px;
+  padding: clamp(12px, 2vw, 14px) clamp(14px, 2.5vw, 18px);
+  margin-bottom: clamp(14px, 2vw, 18px);
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   color: #2d3748;
   background: #f8f9fa;
   transition: all 0.3s ease;
@@ -179,16 +174,16 @@ body:has(.login-container) {
 
 .login-form button {
   width: 100%;
-  padding: 14px;
+  padding: clamp(12px, 2vw, 14px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
   border: none;
   border-radius: 25px;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 10px;
+  margin-top: clamp(8px, 1.5vw, 10px);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -202,7 +197,6 @@ body:has(.login-container) {
   transform: translateY(0);
 }
 
-/* Right Side - Welcome Section */
 .login-container::after {
   content: 'Join Campus to Career: Empowering Students, Connecting Companies, and Supporting Colleges!';
   flex: 1;
@@ -211,18 +205,20 @@ body:has(.login-container) {
   justify-content: center;
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px);
   text-align: center;
   line-height: 1.6;
-  padding: 60px 40px;
+  padding: clamp(40px, 5vw, 60px) clamp(30px, 4vw, 40px);
   font-weight: 500;
+  min-width: 0;
+  word-wrap: break-word;
 }
 
 .error {
   color: #e53e3e;
-  font-size: 13px;
-  margin-top: 12px;
-  padding: 10px 14px;
+  font-size: clamp(12px, 2vw, 13px);
+  margin-top: clamp(10px, 2vw, 12px);
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 14px);
   background: #fff5f5;
   border-left: 3px solid #e53e3e;
   border-radius: 6px;
@@ -230,9 +226,9 @@ body:has(.login-container) {
 }
 
 .login-form p[style*="color: green"] {
-  font-size: 13px;
-  margin-top: 12px;
-  padding: 10px 14px;
+  font-size: clamp(12px, 2vw, 13px);
+  margin-top: clamp(10px, 2vw, 12px);
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 14px);
   background: #f0fff4;
   border-left: 3px solid #48bb78;
   color: #22543d !important;
@@ -243,9 +239,9 @@ body:has(.login-container) {
 .login-form p:not(.error):not([style*="color: green"]) {
   text-align: left;
   color: #718096;
-  margin-top: 15px;
+  margin-top: clamp(12px, 2vw, 15px);
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: clamp(13px, 2vw, 14px);
   line-height: 1.6;
 }
 
@@ -261,10 +257,6 @@ body:has(.login-container) {
   text-decoration: underline;
 }
 
-/* ============================================
-   DASHBOARD PAGES
-   ============================================ */
-
 body:has(.dashboard-container) {
   background: #f5f7fa;
 }
@@ -272,46 +264,48 @@ body:has(.dashboard-container) {
 .dashboard-container {
   display: flex;
   min-height: 100vh;
+  flex-direction: column;
 }
 
-/* Sidebar Styles */
 .sidebar {
   width: 280px;
   background: linear-gradient(180deg, #4a90e2 0%, #357abd 100%);
   color: white;
-  padding: 30px 20px;
+  padding: clamp(20px, 3vw, 30px) clamp(15px, 2vw, 20px);
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
   position: fixed;
   height: 100vh;
   overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
 .profile {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: clamp(20px, 3vw, 30px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
 }
 
 .profile-img {
-  width: 100px;
-  height: 100px;
+  width: clamp(70px, 12vw, 100px);
+  height: clamp(70px, 12vw, 100px);
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid rgba(255, 255, 255, 0.3);
-  margin-bottom: 15px;
+  margin-bottom: clamp(10px, 2vw, 15px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .profile h3 {
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px);
   font-weight: 600;
   margin-bottom: 5px;
   color: white;
 }
 
 .profile p {
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -321,16 +315,16 @@ body:has(.dashboard-container) {
 }
 
 .sidebar nav li {
-  padding: 15px 20px;
-  margin-bottom: 10px;
+  padding: clamp(12px, 2vw, 15px) clamp(15px, 2.5vw, 20px);
+  margin-bottom: clamp(8px, 1.5vw, 10px);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(8px, 1.5vw, 12px);
 }
 
 .sidebar nav li:hover {
@@ -342,29 +336,29 @@ body:has(.dashboard-container) {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Main Content */
 .main-content {
   flex: 1;
   margin-left: 280px;
-  padding: 40px;
+  padding: clamp(20px, 4vw, 40px);
   background: #f5f7fa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: margin-left 0.3s ease;
 }
 
 .welcome-section {
   background: white;
-  padding: 30px;
-  border-radius: 16px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
   max-width: 1200px;
   width: 100%;
 }
 
 .welcome-section h1 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #2d3748;
   margin-bottom: 8px;
@@ -375,23 +369,22 @@ body:has(.dashboard-container) {
 }
 
 .welcome-section p {
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: #718096;
 }
 
-/* Cards Grid */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(15px, 2.5vw, 25px);
   max-width: 1200px;
   width: 100%;
 }
 
 .card {
   background: white;
-  padding: 30px;
-  border-radius: 16px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -423,8 +416,8 @@ body:has(.dashboard-container) {
 }
 
 .card-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: clamp(36px, 6vw, 48px);
+  margin-bottom: clamp(15px, 2.5vw, 20px);
   display: inline-block;
   transition: transform 0.3s ease;
 }
@@ -434,26 +427,26 @@ body:has(.dashboard-container) {
 }
 
 .card-title {
-  font-size: 22px;
+  font-size: clamp(18px, 3vw, 22px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 12px;
+  margin-bottom: clamp(10px, 2vw, 12px);
 }
 
 .card-description {
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   color: #718096;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: clamp(15px, 2.5vw, 20px);
 }
 
 .card-action {
   color: #4a90e2;
   font-weight: 600;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: clamp(6px, 1.5vw, 8px);
   transition: gap 0.3s ease;
 }
 
@@ -463,36 +456,36 @@ body:has(.dashboard-container) {
 }
 
 .card:hover .card-action {
-  gap: 12px;
+  gap: clamp(10px, 2vw, 12px);
 }
 
 .card:hover .card-action::after {
   transform: translateX(5px);
 }
 
-/* Post Approve Page Styles */
 .post-approve-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
 }
 
 .post-approve-container h2 {
-  font-size: 28px;
+  font-size: clamp(22px, 3.5vw, 28px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(8px, 1.5vw, 12px);
+  flex-wrap: wrap;
 }
 
 .notice-card {
   background: white;
   border: 1px solid #e2e8f0;
-  padding: 25px;
-  margin-bottom: 20px;
-  border-radius: 12px;
+  padding: clamp(18px, 3vw, 25px);
+  margin-bottom: clamp(15px, 2.5vw, 20px);
+  border-radius: clamp(10px, 1.5vw, 12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
@@ -503,41 +496,46 @@ body:has(.dashboard-container) {
 }
 
 .notice-card h3 {
-  font-size: 20px;
+  font-size: clamp(17px, 2.5vw, 20px);
   font-weight: 600;
   color: #2d3748;
-  margin-bottom: 12px;
+  margin-bottom: clamp(10px, 2vw, 12px);
 }
 
 .notice-card p {
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   color: #718096;
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: clamp(12px, 2vw, 15px);
 }
 
 .notice-card img {
-  margin-top: 15px;
+  max-width: 100%;
+  height: auto;
+  margin-top: clamp(12px, 2vw, 15px);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .notice-actions {
-  margin-top: 20px;
+  margin-top: clamp(15px, 2.5vw, 20px);
   display: flex;
-  gap: 12px;
+  gap: clamp(10px, 2vw, 12px);
+  flex-wrap: wrap;
 }
 
 .notice-actions button {
-  padding: 10px 20px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2.5vw, 20px);
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  flex: 1;
+  min-width: 120px;
 }
 
 .notice-actions button:first-child {
@@ -568,66 +566,61 @@ body:has(.dashboard-container) {
   transform: none !important;
 }
 
-/* Loading State */
 .loading-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: clamp(40px, 8vw, 60px) clamp(15px, 2vw, 20px);
   color: #718096;
-  font-size: 18px;
+  font-size: clamp(16px, 2.5vw, 18px);
 }
 
 .no-notices {
   text-align: center;
-  padding: 60px 20px;
+  padding: clamp(40px, 8vw, 60px) clamp(15px, 2vw, 20px);
   color: #a0aec0;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   background: white;
-  border-radius: 12px;
+  border-radius: clamp(10px, 1.5vw, 12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-
-/* ============================================
-   POST PAGE & PROFILE PAGE STYLES
-   ============================================ */
 
 .profile-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
 }
 
 .profile-page h2 {
-  font-size: 28px;
+  font-size: clamp(22px, 3.5vw, 28px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
 }
 
 .profile-page h3 {
-  font-size: 22px;
+  font-size: clamp(18px, 3vw, 22px);
   font-weight: 600;
   color: #2d3748;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: clamp(30px, 4vw, 40px);
+  margin-bottom: clamp(15px, 2.5vw, 20px);
 }
 
 .profile-page form {
   background: white;
-  padding: 30px;
-  border-radius: 12px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: clamp(10px, 1.5vw, 12px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 40px;
+  margin-bottom: clamp(30px, 4vw, 40px);
 }
 
 .profile-page input[type="text"],
 .profile-page input[type="file"],
 .profile-page textarea {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 20px;
+  padding: clamp(10px, 2vw, 12px) clamp(12px, 2.5vw, 16px);
+  margin-bottom: clamp(15px, 2.5vw, 20px);
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   color: #2d3748;
   background: #f8f9fa;
   transition: all 0.3s ease;
@@ -650,12 +643,12 @@ body:has(.dashboard-container) {
 
 .profile-page button[type="submit"] {
   width: 100%;
-  padding: 14px;
+  padding: clamp(12px, 2vw, 14px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -682,9 +675,9 @@ body:has(.dashboard-container) {
 .profile-page ul li {
   background: white;
   border: 1px solid #e2e8f0;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 12px;
+  padding: clamp(15px, 2.5vw, 20px);
+  margin-bottom: clamp(12px, 2vw, 15px);
+  border-radius: clamp(10px, 1.5vw, 12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
@@ -695,26 +688,28 @@ body:has(.dashboard-container) {
 }
 
 .profile-page ul li strong {
-  font-size: 18px;
+  font-size: clamp(16px, 2.5vw, 18px);
   color: #2d3748;
   display: block;
   margin-bottom: 8px;
 }
 
 .profile-page ul li img {
-  margin-top: 15px;
+  max-width: 100%;
+  height: auto;
+  margin-top: clamp(12px, 2vw, 15px);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .profile-page ul li button {
-  margin-top: 15px;
-  padding: 8px 16px;
+  margin-top: clamp(12px, 2vw, 15px);
+  padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2vw, 16px);
   background: #f56565;
   color: white;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -731,29 +726,25 @@ body:has(.dashboard-container) {
 .profile-page > p {
   text-align: center;
   color: #a0aec0;
-  font-size: 16px;
-  padding: 40px 20px;
+  font-size: clamp(14px, 2vw, 16px);
+  padding: clamp(30px, 4vw, 40px) clamp(15px, 2vw, 20px);
   background: white;
-  border-radius: 12px;
+  border-radius: clamp(10px, 1.5vw, 12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-
-/* ============================================
-   STUDENT PROFILE PAGE (CREATE/EDIT)
-   ============================================ */
 
 .profile-page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
   background: #f5f7fa;
 }
 
 .profile-page h2 {
-  font-size: 36px;
+  font-size: clamp(26px, 4vw, 36px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -764,25 +755,26 @@ body:has(.dashboard-container) {
   background: #f0fff4;
   border-left: 4px solid #48bb78;
   color: #22543d !important;
-  padding: 12px 16px;
+  padding: clamp(10px, 2vw, 12px) clamp(12px, 2.5vw, 16px);
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: clamp(15px, 2.5vw, 20px);
   font-weight: 600;
+  font-size: clamp(13px, 2vw, 15px);
 }
 
 .profile-page form {
   background: white;
-  padding: 40px;
-  border-radius: 16px;
+  padding: clamp(25px, 4vw, 40px);
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .profile-page h3 {
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
   font-weight: 700;
   color: #2d3748;
-  margin: 30px 0 20px 0;
-  padding-bottom: 15px;
+  margin: clamp(20px, 3vw, 30px) 0 clamp(15px, 2.5vw, 20px) 0;
+  padding-bottom: clamp(12px, 2vw, 15px);
   border-bottom: 2px solid #e2e8f0;
 }
 
@@ -791,20 +783,20 @@ body:has(.dashboard-container) {
 }
 
 .profile-page h4 {
-  font-size: 18px;
+  font-size: clamp(16px, 2.5vw, 18px);
   font-weight: 600;
   color: #4a5568;
-  margin: 25px 0 15px 0;
+  margin: clamp(20px, 3vw, 25px) 0 clamp(12px, 2vw, 15px) 0;
 }
 
 .profile-page input,
 .profile-page select {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 15px;
+  padding: clamp(10px, 2vw, 12px) clamp(12px, 2.5vw, 16px);
+  margin-bottom: clamp(12px, 2vw, 15px);
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   color: #2d3748;
   background: #f8f9fa;
   transition: all 0.3s ease;
@@ -825,18 +817,18 @@ body:has(.dashboard-container) {
 
 .profile-page button[type="submit"] {
   width: 100%;
-  padding: 16px;
+  padding: clamp(14px, 2.5vw, 16px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 18px;
+  border-radius: clamp(10px, 1.5vw, 12px);
+  font-size: clamp(16px, 2.5vw, 18px);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 30px;
+  margin-top: clamp(20px, 3vw, 30px);
   box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
 }
 
@@ -846,16 +838,16 @@ body:has(.dashboard-container) {
 }
 
 .profile-page button[type="button"] {
-  padding: 10px 20px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2.5vw, 20px);
   background: #4a90e2;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 15px 0;
+  margin: clamp(12px, 2vw, 15px) 0;
 }
 
 .profile-page button[type="button"]:hover {
@@ -865,13 +857,13 @@ body:has(.dashboard-container) {
 }
 
 .profile-page > button {
-  margin-top: 20px;
-  padding: 12px 30px;
+  margin-top: clamp(15px, 2.5vw, 20px);
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 30px);
   background: #718096;
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -882,31 +874,26 @@ body:has(.dashboard-container) {
   transform: translateY(-2px);
 }
 
-/* Education items container */
 .profile-page form > div {
   background: #f8f9fa;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  padding: clamp(15px, 2.5vw, 20px);
+  border-radius: clamp(10px, 1.5vw, 12px);
+  margin-bottom: clamp(12px, 2vw, 15px);
   border: 1px solid #e2e8f0;
 }
-
-/* ============================================
-   VIEW PROFILE PAGE
-   ============================================ */
 
 .profile-view {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
   background: #f5f7fa;
 }
 
 .profile-view h2 {
-  font-size: 36px;
+  font-size: clamp(26px, 4vw, 36px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -916,16 +903,21 @@ body:has(.dashboard-container) {
 .profile-view table {
   width: 100%;
   background: white;
-  border-radius: 16px;
+  border-radius: clamp(12px, 2vw, 16px);
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border-collapse: collapse;
   border: none;
+  display: block;
+  overflow-x: auto;
 }
 
 .profile-view table tr {
   border-bottom: 1px solid #e2e8f0;
   transition: background 0.2s ease;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .profile-view table tr:hover {
@@ -937,40 +929,42 @@ body:has(.dashboard-container) {
 }
 
 .profile-view table td {
-  padding: 18px 25px;
-  font-size: 15px;
+  padding: clamp(14px, 2.5vw, 18px) clamp(18px, 3vw, 25px);
+  font-size: clamp(13px, 2vw, 15px);
   color: #2d3748;
   vertical-align: top;
   border: none;
+  word-wrap: break-word;
 }
 
 .profile-view table td[style*="fontWeight"] {
   font-weight: 700 !important;
   color: #4a90e2;
-  width: 250px;
+  width: 40%;
   background: #f8f9fa;
 }
 
 .profile-view table td:not([style*="fontWeight"]) {
   color: #4a5568;
   line-height: 1.8;
+  width: 60%;
 }
 
 .profile-view table td > div {
-  margin-bottom: 12px;
-  padding: 8px;
+  margin-bottom: clamp(10px, 2vw, 12px);
+  padding: clamp(6px, 1.5vw, 8px);
   background: #f8f9fa;
   border-radius: 6px;
 }
 
 .profile-view > button {
-  margin-top: 30px;
-  padding: 12px 30px;
+  margin-top: clamp(20px, 3vw, 30px);
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 30px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -984,29 +978,25 @@ body:has(.dashboard-container) {
 
 .profile-view > p {
   text-align: center;
-  padding: 60px 20px;
-  font-size: 18px;
+  padding: clamp(40px, 8vw, 60px) clamp(15px, 2vw, 20px);
+  font-size: clamp(16px, 2.5vw, 18px);
   color: #718096;
 }
-
-/* ============================================
-   NOTICE PAGE (APPROVED NOTICES FOR STUDENTS)
-   ============================================ */
 
 .notice-page-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
   background: #f5f7fa;
   min-height: 100vh;
 }
 
 .notice-page-header {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
+  margin-bottom: clamp(25px, 4vw, 40px);
+  padding-bottom: clamp(15px, 2.5vw, 20px);
   border-bottom: 3px solid #4a90e2;
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   -webkit-background-clip: text;
@@ -1016,140 +1006,110 @@ body:has(.dashboard-container) {
 
 .notice-loading {
   text-align: center;
-  padding: 80px 20px;
-  font-size: 20px;
+  padding: clamp(50px, 10vw, 80px) clamp(15px, 2vw, 20px);
+  font-size: clamp(18px, 2.5vw, 20px);
   color: #718096;
   background: white;
-  border-radius: 16px;
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .notice-empty {
   text-align: center;
-  padding: 80px 40px;
+  padding: clamp(50px, 10vw, 80px) clamp(25px, 4vw, 40px);
   background: white;
-  border-radius: 16px;
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .notice-empty-text {
-  font-size: 20px;
+  font-size: clamp(18px, 2.5vw, 20px);
   color: #a0aec0;
-  margin-bottom: 15px;
+  margin-bottom: clamp(12px, 2vw, 15px);
 }
 
 .notice-empty-icon {
-  font-size: 64px;
-  margin-bottom: 20px;
+  font-size: clamp(48px, 8vw, 64px);
+  margin-bottom: clamp(15px, 2.5vw, 20px);
   opacity: 0.3;
 }
 
-.notices-grid {
-  display: grid;
-  gap: 25px;
+.notices-page {
+  padding: clamp(15px, 2vw, 20px);
+  background: #f9fafb;
+  min-height: 100vh;
 }
 
-.notice-card {
-  background: white;
-  border: 2px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.notice-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 6px;
-  height: 100%;
-  background: linear-gradient(180deg, #4a90e2 0%, #357abd 100%);
-  transition: width 0.3s ease;
-}
-
-.notice-card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  transform: translateX(8px);
-  border-color: #4a90e2;
-}
-
-.notice-card:hover::before {
-  width: 10px;
-}
-
-.notice-title {
-  font-size: 26px;
+.notices-page h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 15px;
-  padding-left: 20px;
-  line-height: 1.3;
+  margin-bottom: clamp(15px, 2.5vw, 20px);
+  text-align: center;
 }
 
-.notice-description {
-  font-size: 16px;
-  color: #4a5568;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  padding-left: 20px;
+.notice-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(15px, 2.5vw, 20px);
+  padding: clamp(15px, 2vw, 20px);
 }
 
-.notice-image-container {
-  margin: 25px 0 25px 20px;
+.notice-item {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: clamp(10px, 1.5vw, 12px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: clamp(15px, 2.5vw, 20px);
+  transition: all 0.3s ease;
 }
 
-.notice-image {
-  max-width: 300px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-  cursor: pointer;
+.notice-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
-.notice-image:hover {
-  transform: scale(1.05);
+.notice-item h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: clamp(8px, 1.5vw, 10px);
+}
+
+.notice-item p {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: #718096;
+  margin-bottom: clamp(8px, 1.5vw, 10px);
+  line-height: 1.6;
+}
+
+.notice-item img {
+  width: 100%;
+  max-height: clamp(150px, 25vw, 200px);
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: clamp(8px, 1.5vw, 10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .notice-company {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 20px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e2e8f0 100%);
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-left: 20px;
-  width: fit-content;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  color: #4a5568;
+  display: block;
+  margin-top: clamp(8px, 1.5vw, 10px);
+  font-weight: 500;
 }
 
-.notice-company-label {
-  font-weight: 700;
-  color: #2d3748;
-  font-size: 15px;
-}
-
-.notice-company-name {
-  font-weight: 600;
-  color: #4a90e2;
-  font-size: 16px;
-}
-
-/* Back to Dashboard Button */
 .notice-back-button {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  padding: 15px 30px;
+  bottom: clamp(15px, 3vw, 30px);
+  right: clamp(15px, 3vw, 30px);
+  padding: clamp(10px, 2vw, 15px) clamp(20px, 3vw, 30px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
   border: none;
   border-radius: 50px;
-  font-size: 16px;
+  font-size: clamp(13px, 2vw, 16px);
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
@@ -1165,15 +1125,15 @@ body:has(.dashboard-container) {
 .shortlist-page {
   max-width: 700px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: clamp(30px, 8vw, 60px) clamp(15px, 2vw, 20px);
   text-align: center;
 }
 
 .shortlist-page h2 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 40px;
+  margin-bottom: clamp(25px, 4vw, 40px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1182,8 +1142,8 @@ body:has(.dashboard-container) {
 
 .shortlist-container {
   background: white;
-  padding: 50px 40px;
-  border-radius: 16px;
+  padding: clamp(30px, 6vw, 50px) clamp(25px, 4vw, 40px);
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -1194,19 +1154,19 @@ body:has(.dashboard-container) {
 }
 
 .shortlist-description {
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: #718096;
   line-height: 1.6;
-  margin-bottom: 35px;
+  margin-bottom: clamp(25px, 4vw, 35px);
 }
 
 .download-btn {
-  padding: 16px 40px;
+  padding: clamp(12px, 2vw, 16px) clamp(25px, 4vw, 40px);
   background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
   color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: clamp(10px, 1.5vw, 12px);
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1225,35 +1185,31 @@ body:has(.dashboard-container) {
   transform: translateY(-1px);
 }
 
-/* ============================================
-   APPROVED NOTICES / NOTICE BOARD PAGE
-   ============================================ */
-
 .notices-page {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
 }
 
 .notices-page h1 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
+  margin-bottom: clamp(25px, 4vw, 40px);
+  padding-bottom: clamp(15px, 2.5vw, 20px);
   border-bottom: 3px solid #4a90e2;
 }
 
 .notice-list {
   display: grid;
-  gap: 25px;
+  gap: clamp(18px, 2.5vw, 25px);
 }
 
 .notice-item {
   background: white;
   border: 2px solid #e2e8f0;
-  padding: 30px;
-  border-radius: 16px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   position: relative;
@@ -1277,26 +1233,26 @@ body:has(.dashboard-container) {
 }
 
 .notice-item h3 {
-  font-size: 24px;
+  font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 12px;
-  padding-left: 15px;
+  margin-bottom: clamp(10px, 2vw, 12px);
+  padding-left: clamp(12px, 2vw, 15px);
 }
 
 .notice-item p {
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: #4a5568;
   line-height: 1.8;
-  margin-bottom: 15px;
-  padding-left: 15px;
+  margin-bottom: clamp(12px, 2vw, 15px);
+  padding-left: clamp(12px, 2vw, 15px);
 }
 
 .notice-item img {
-  max-width: 250px;
+  max-width: clamp(200px, 30vw, 250px);
   height: auto;
-  border-radius: 12px;
-  margin: 20px 0 20px 15px;
+  border-radius: clamp(10px, 1.5vw, 12px);
+  margin: clamp(15px, 2.5vw, 20px) 0 clamp(15px, 2.5vw, 20px) clamp(12px, 2vw, 15px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
@@ -1308,52 +1264,48 @@ body:has(.dashboard-container) {
 .notice-company {
   font-weight: 600;
   color: #4a90e2;
-  font-size: 15px;
-  padding-left: 15px;
-  margin-top: 15px;
+  font-size: clamp(13px, 2vw, 15px);
+  padding-left: clamp(12px, 2vw, 15px);
+  margin-top: clamp(12px, 2vw, 15px);
   display: block;
 }
-
-/* ============================================
-   EDIT PROFILE PAGE
-   ============================================ */
 
 .edit-profile-page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
   background: #f5f7fa;
 }
 
 .edit-profile-page h1 {
-  font-size: 36px;
+  font-size: clamp(26px, 4vw, 36px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 40px;
+  margin-bottom: clamp(25px, 4vw, 40px);
 }
 
 .profile-section {
   background: white;
-  padding: 40px;
-  border-radius: 16px;
+  padding: clamp(25px, 4vw, 40px);
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
 }
 
 .profile-section h2 {
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
+  margin-bottom: clamp(18px, 2.5vw, 25px);
+  padding-bottom: clamp(12px, 2vw, 15px);
   border-bottom: 2px solid #e2e8f0;
 }
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: clamp(15px, 2.5vw, 20px);
+  margin-bottom: clamp(15px, 2.5vw, 20px);
 }
 
 .edit-profile-page input[type="text"],
@@ -1364,10 +1316,10 @@ body:has(.dashboard-container) {
 .edit-profile-page select,
 .edit-profile-page textarea {
   width: 100%;
-  padding: 12px 16px;
+  padding: clamp(10px, 2vw, 12px) clamp(12px, 2.5vw, 16px);
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   color: #2d3748;
   background: #f8f9fa;
   transition: all 0.3s ease;
@@ -1390,26 +1342,26 @@ body:has(.dashboard-container) {
 
 .education-item {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: clamp(12px, 2vw, 15px);
+  padding: clamp(15px, 2.5vw, 20px);
   background: #f8f9fa;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  border-radius: clamp(10px, 1.5vw, 12px);
+  margin-bottom: clamp(12px, 2vw, 15px);
   border: 1px solid #e2e8f0;
 }
 
 .add-education-btn {
-  padding: 10px 20px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2.5vw, 20px);
   background: #4a90e2;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 15px;
+  margin-top: clamp(12px, 2vw, 15px);
 }
 
 .add-education-btn:hover {
@@ -1420,18 +1372,18 @@ body:has(.dashboard-container) {
 
 .update-profile-btn {
   width: 100%;
-  padding: 16px;
+  padding: clamp(14px, 2.5vw, 16px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 18px;
+  border-radius: clamp(10px, 1.5vw, 12px);
+  font-size: clamp(16px, 2.5vw, 18px);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 30px;
+  margin-top: clamp(20px, 3vw, 30px);
   box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
 }
 
@@ -1440,36 +1392,37 @@ body:has(.dashboard-container) {
   box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
 }
 
-/* ============================================
-   PROFILE DETAILS PAGE
-   ============================================ */
-
 .profile-details-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
   background: #f5f7fa;
 }
 
 .profile-details-page h1 {
-  font-size: 36px;
+  font-size: clamp(26px, 4vw, 36px);
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 3vw, 30px);
 }
 
 .profile-table {
   width: 100%;
   background: white;
-  border-radius: 16px;
+  border-radius: clamp(12px, 2vw, 16px);
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
 }
 
 .profile-table tr {
   border-bottom: 1px solid #e2e8f0;
   transition: background 0.2s ease;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .profile-table tr:hover {
@@ -1481,33 +1434,35 @@ body:has(.dashboard-container) {
 }
 
 .profile-table td {
-  padding: 18px 25px;
-  font-size: 15px;
+  padding: clamp(14px, 2.5vw, 18px) clamp(18px, 3vw, 25px);
+  font-size: clamp(13px, 2vw, 15px);
   color: #2d3748;
   vertical-align: top;
+  word-wrap: break-word;
 }
 
 .profile-table td:first-child {
   font-weight: 700;
   color: #4a90e2;
-  width: 200px;
+  width: 40%;
   background: #f8f9fa;
 }
 
 .profile-table td:last-child {
   color: #4a5568;
   line-height: 1.6;
+  width: 60%;
 }
 
 .back-to-dashboard-btn {
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 30px;
+  margin-top: clamp(20px, 3vw, 30px);
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 30px);
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
@@ -1520,115 +1475,81 @@ body:has(.dashboard-container) {
   box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
 }
 
-/* Empty state styling */
 .empty-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: clamp(40px, 8vw, 60px) clamp(15px, 2vw, 20px);
   color: #a0aec0;
-  font-size: 18px;
+  font-size: clamp(16px, 2.5vw, 18px);
   background: white;
-  border-radius: 16px;
+  border-radius: clamp(12px, 2vw, 16px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-
-/* Auth Pages Responsive */
+/* Hide Welcome Section in Mobile View */
 @media (max-width: 768px) {
-  .login-container {
-    flex-direction: column;
-    max-width: 450px;
-  }
-
   .login-container::after {
     display: none;
   }
-
-  .login-form {
-    padding: 40px 30px;
-  }
-
-  .login-form::before {
-    top: 25px;
-    left: 30px;
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .login-form {
-    padding: 35px 25px;
-  }
-
-  .login-form::before {
-    top: 20px;
-    left: 25px;
-    font-size: 18px;
-  }
-
-  .login-form h2 {
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-
-  .login-form input {
-    padding: 12px 15px;
-    font-size: 14px;
-  }
-
-  .login-form button {
-    padding: 12px;
-    font-size: 14px;
-  }
-}
-
-/* Dashboard Responsive */
-@media (max-width: 1024px) {
-  .sidebar {
-    width: 240px;
-  }
-
-  .main-content {
-    margin-left: 240px;
-    padding: 30px;
-  }
-  
-  .welcome-section,
-  .cards {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    max-width: 500px;
+  }
+
+  .login-container::after {
+    min-height: 150px;
+  }
+
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    padding: 20px;
+    transform: translateX(-100%);
+    width: 280px;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .menu-button {
+    display: block;
+    background: #4a90e2;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+  }
+
+  .menu-button:hover {
+    background: #357abd;
   }
 
   .main-content {
     margin-left: 0;
-    padding: 20px;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-  }
-  
-  .welcome-section {
-    max-width: 100%;
+  .profile-view table,
+  .profile-table {
+    font-size: clamp(12px, 2vw, 14px);
   }
 
-  .welcome-section h1 {
-    font-size: 24px;
+  .profile-view table td[style*="fontWeight"],
+  .profile-table td:first-child {
+    width: 35%;
   }
 
-  .post-approve-container {
-    padding: 20px 15px;
+  .profile-view table td:not([style*="fontWeight"]),
+  .profile-table td:last-child {
+    width: 65%;
   }
 
   .notice-actions {
@@ -1641,25 +1562,30 @@ body:has(.dashboard-container) {
 }
 
 @media (max-width: 480px) {
-  .sidebar nav li {
-    padding: 12px 15px;
-    font-size: 14px;
+  .login-container {
+    max-width: 100%;
   }
 
-  .profile-img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .card {
-    padding: 20px;
+  .cards {
+    grid-template-columns: 1fr;
   }
 
   .card-icon {
-    font-size: 36px;
+    font-size: clamp(32px, 8vw, 40px);
   }
 
-  .card-title {
-    font-size: 18px;
+  .notice-item img {
+    max-width: 100%;
+  }
+
+  .profile-view table td,
+  .profile-table td {
+    padding: clamp(10px, 2vw, 12px) clamp(12px, 2vw, 15px);
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-button {
+    display: none;
   }
 }
