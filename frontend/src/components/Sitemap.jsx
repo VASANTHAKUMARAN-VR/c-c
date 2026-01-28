@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * Sitemap Component - Generates dynamic sitemap for SEO
  * This should be served as /sitemap.xml
