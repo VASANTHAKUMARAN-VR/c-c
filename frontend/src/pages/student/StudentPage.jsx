@@ -1,13 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaTachometerAlt, FaUser, FaEdit, FaBell, FaSignOutAlt } from "react-icons/fa";
+import SEO from "../../components/SEO";
+import { getPageSEO } from "../../config/seoConfig";
 
 const StudentPage = () => {
   const user = JSON.parse(localStorage.getItem("user")) || {};
   const navigate = useNavigate();   // ✅ initialize navigate here
+  const pageSEO = getPageSEO('student');
 
   return (
-    <div className="dashboard-container">
+    <>
+      <SEO 
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        url={pageSEO.url}
+      />
+      <div className="dashboard-container">
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="profile">
@@ -73,6 +83,7 @@ const StudentPage = () => {
         </div>
       </main>
     </div>
+    </>
   );
 };
 

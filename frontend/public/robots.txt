@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/
+Disallow: /api/
+Disallow: /.next/
+Disallow: /__pycache__/
+
+# Crawl delay to avoid overloading server
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://campus-career.vercel.app/sitemap.xml
+Sitemap: https://campus-career.vercel.app/sitemap-student.xml
+Sitemap: https://campus-career.vercel.app/sitemap-company.xml
+Sitemap: https://campus-career.vercel.app/sitemap-college.xml
