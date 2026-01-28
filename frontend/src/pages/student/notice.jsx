@@ -141,7 +141,6 @@
 
 
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Building, Calendar, MapPin, Briefcase, Search, Filter } from "lucide-react";
 
 const NoticePage = () => {
@@ -149,7 +148,6 @@ const NoticePage = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredNotices, setFilteredNotices] = useState([]);
-  const navigate = useNavigate();
 
   const student = JSON.parse(localStorage.getItem("user"));
   const collegeCode = student?.collegeCode;

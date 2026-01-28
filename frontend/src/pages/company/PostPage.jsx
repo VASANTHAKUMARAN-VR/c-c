@@ -174,7 +174,7 @@ const PostPage = () => {
       } else {
         alert("Failed to post notice");
       }
-    } catch (err) {
+    } catch {
       alert("Error posting notice");
     }
 
